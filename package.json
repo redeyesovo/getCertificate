@@ -1,0 +1,20 @@
+{
+  "name": "getssl",
+  "version": "1.0.0",
+  "description": "",
+  "main": "GetSSLCertificate.js",
+  "scripts": {
+    "start": "node read.js",
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redeyesovo/MyLittleJS.git"
+  },
+  "author": "redeyesovo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/redeyesovo/MyLittleJS/issues"
+  },
+  "homepage": "https://github.com/redeyesovo/MyLittleJS#readme"
+}

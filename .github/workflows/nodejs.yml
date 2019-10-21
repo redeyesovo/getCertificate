@@ -12,16 +12,13 @@ jobs:
         node-version: [8.x, 10.x, 12.x]
 
     steps:
-    - name: Node App Helper Actions
-      uses: guahanweb/action-nodejs-gh-pages@1.0.0
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: npm start and test
-      run: |
-        npm start
-        npm test
+    - name: Checkout
+      uses: actions/checkout@master
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@master
       env:
-        CI: true
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BASE_BRANCH: master # The branch the action should deploy from.
+        BRANCH: gh-pages # The branch the action should deploy to.
+        FOLDER: build # The folder the action should deploy.
+        BUILD_SCRIPT: npm start && npm test

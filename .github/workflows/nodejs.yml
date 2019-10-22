@@ -6,7 +6,7 @@ on:
       - master
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '0 9 * * *'
+    - cron:  '*/1 * * * *'
 
 jobs:
   build:
@@ -23,9 +23,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm install, build, test and start
+    - name: npm install, build, start and test
       run: |
-        npm test
         npm start
+        npm test
       env:
         CI: true

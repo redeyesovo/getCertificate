@@ -48,8 +48,8 @@ const getDay = host =>{
     var hosts = await readFile('ssl.txt');
     var arr1 = [];
     var arr2 = [];
-    var certificateINFO =[];
-    var count=0;
+	var certificateINFO =[];
+	var count=0;
 	for(let i=0,len=hosts.length;i<len;i++){
 		//在循环中判断字符串数组中是否含带有'#'的字符串，若有，则i++跳过。
 		if(hosts[i].includes('#')){
@@ -62,8 +62,8 @@ const getDay = host =>{
         if(restDay>61){arr2[i]=arr2[i]+'☑️';}
         else if(30<restDay<60){arr2[i]=arr2[i]+'⚠️'};
         if(restDay<30){
-            arr2[i]=arr2[i]+'❌';
-	    count++;
+			arr2[i]=arr2[i]+'❌';
+			count++;
             //console.log(`检测不通过！距${domains.host}证书过期只剩${restDay}天！`);
         };
         certificateINFO[i] = [
@@ -71,7 +71,7 @@ const getDay = host =>{
             arr2[i]
         ];
     }
-    console.table(certificateINFO);
+	console.table(certificateINFO);
 	const smtpTransport = nodemailer.createTransport({
 		service: 'qq',
 		auth: {

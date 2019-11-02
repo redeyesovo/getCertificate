@@ -1,3 +1,4 @@
+const nodemailer  = require("nodemailer");
 const fs = require('fs');
 const https = require('https');
 const tls = require('tls');
@@ -48,6 +49,7 @@ const getDay = host =>{
     var arr1 = [];
     var arr2 = [];
     var certificateINFO =[];
+    var count=0;
 	for(let i=0,len=hosts.length;i<len;i++){
 		//在循环中判断字符串数组中是否含带有'#'的字符串，若有，则i++跳过。
 		if(hosts[i].includes('#')){
@@ -61,6 +63,7 @@ const getDay = host =>{
         else if(30<restDay<60){arr2[i]=arr2[i]+'⚠️'};
         if(restDay<30){
             arr2[i]=arr2[i]+'❌';
+	    count++;
             //console.log(`检测不通过！距${domains.host}证书过期只剩${restDay}天！`);
         };
         certificateINFO[i] = [
@@ -69,4 +72,19 @@ const getDay = host =>{
         ];
     }
     console.table(certificateINFO);
+	const smtpTransport = nodemailer.createTransport({
+		service: 'qq',
+		auth: {
+			user: '958089586@qq.com',
+			pass: 'rtxpzjtcorlgbcjj'//注：此处为授权码，并非邮箱密码
+		}
+	});
+	smtpTransport.sendMail({
+		from    : '958089586@qq.com',//发件人邮箱
+		to      : '958089586@qq.com',//收件人邮箱，多个邮箱地址间用','隔开
+		subject : '域名检测结果更新',//邮件主题
+		text: `下面是被检测域名：${certificateINFO}，共${count}个域名不通过检测`,//text和html两者只支持一种
+	}, function(err, res) {
+		console.log(err, res);
+	});
 })()

@@ -1,0 +1,31 @@
+name: Node CI
+
+on: 
+	push:
+		branches: 
+			- master
+	schedule:
+		# * is a special character in YAML so you have to quote this string
+		- cron:  '0 2 * * *'
+
+jobs:
+	build:
+
+		runs-on: ubuntu-latest
+
+		strategy:
+			matrix:
+				node-version: [12.x]
+
+		steps:
+		- uses: actions/checkout@v1
+		- name: Use Node.js ${{ matrix.node-version }}
+			uses: actions/setup-node@v1
+			with:
+				node-version: ${{ matrix.node-version }}
+		- name: npm install, build, start and test
+			run: |
+				npm start
+				npm test
+			env:
+				CI: true

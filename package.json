@@ -4,7 +4,7 @@
   "description": "",
   "main": "GetSSLCertificate.js",
   "scripts": {
-    "start": "node read.js",
+    "start": "node getCertificate.js",
     "test": "node test.js"
   },
   "repository": {

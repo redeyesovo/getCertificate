@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/redeyesovo/MyLittleJS/issues"
   },
-  "homepage": "https://github.com/redeyesovo/MyLittleJS#readme"
+  "homepage": "https://github.com/redeyesovo/MyLittleJS#readme",
+  "dependencies": {
+    "nodemailer": "^6.4.2"
+  }
 }

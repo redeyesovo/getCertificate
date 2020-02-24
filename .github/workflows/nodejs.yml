@@ -22,6 +22,7 @@ jobs:
         uses: actions/setup-node@v1.1.0
         with:
           node-version: ${{ matrix.node-version }}
+      - run: cat /home/runner/work/_temp/.npmrc 
       - run: npm start
       - run: npm test
     env:

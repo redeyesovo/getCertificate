@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-node@v1.1.0
         with:
           node-version: ${{ matrix.node-version }}
-      - run: cat /home/runner/work/_temp/.npmrc 
+      - run: cat /home/runner/.npm/_logs/2020-02-24T09_40_22_722Z-debug.log
       - run: npm start
       - run: npm test
     env:

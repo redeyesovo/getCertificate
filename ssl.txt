@@ -1,9 +1,1 @@
-byb.cn
-www.weinian.com.cn
-#u301.com
 oms.keqin-it.com
-jump.pub
-sentry.keqin-it.com
-mp-notify-api.sdpku.com
-static.sdpku.com
-img.sdpku.com

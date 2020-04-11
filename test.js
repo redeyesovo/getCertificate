@@ -20,7 +20,6 @@ const getDay = host =>{
 	return new Promise ((resolve,reject) => {
 		global.domains ={
 			host,
-			port:443,
 			method:'GET',
 			requestCert: true,
 			rejectUnauthorized: false
@@ -44,7 +43,7 @@ const getDay = host =>{
 	});
 }
 (async() => {
-    var hosts = await readFile('ssl.txt');
+    var hosts = await readFile('./ssl.txt');
     var arr1 = [];
     var arr2 = [];
 	var certificateINFO =[];
@@ -58,8 +57,8 @@ const getDay = host =>{
         await getDay(host);
         arr1[i] = host;
         arr2[i] = '剩余'+restDay+'天';
-        //if(restDay>61){arr2[i]=arr2[i]+'☑️';}
-        //else if(30<restDay<60){arr2[i]=arr2[i]+'⚠️'};
+        if(restDay>61){arr2[i]=arr2[i]+'☑️';}
+        else if(30<restDay<60){arr2[i]=arr2[i]+'⚠️'};
         if(restDay<30){
 			count ++;
             arr2[i]=arr2[i]+'❌';
@@ -70,6 +69,6 @@ const getDay = host =>{
             arr2[i]
         ];
     }
-	//console.table(certificateINFO);
+	console.table(certificateINFO);
 	console.log(`共${count}个域名检测不通过`);
 })();

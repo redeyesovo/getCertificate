@@ -44,7 +44,7 @@ const getDay = host =>{
 	});
 }
 (async() => {
-    var hosts = await readFile('ssl.txt');
+    var hosts = await readFile('./ssl.txt');
     var arr1 = [];
     var arr2 = [];
 	var certificateINFO =[];

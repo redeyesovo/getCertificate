@@ -21,7 +21,6 @@ const getDay = host =>{
 	return new Promise ((resolve,reject) => {
 		global.domains ={
 			host,
-			port:443,
 			method:'GET',
 			requestCert: true,
 			rejectUnauthorized: false

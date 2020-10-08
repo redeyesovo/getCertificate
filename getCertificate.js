@@ -75,7 +75,7 @@ const getDay = host =>{
 		service: 'qq',
 		auth: {
 			user: '958089586@qq.com',
-			pass: 'rtxpzjtcorlgbcjj'//注：此处为授权码，并非邮箱密码
+			pass: 'mcuajktitskibeid'//注：此处为授权码，并非邮箱密码
 		}
 	});
 	smtpTransport.sendMail({

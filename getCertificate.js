@@ -23,7 +23,7 @@ const getDay = host =>{
 			host,
 			method:'GET',
 			requestCert: true,
-			rejectUnauthorized: false
+			port: 3306
 		};
 		let req = https.request(domains,(res)=>{
 			let Certificate =  res.connection.getPeerCertificate();

@@ -20,7 +20,7 @@ const readFile = (file) => {
 const getDay = host =>{
 	return new Promise ((resolve,reject) => {
 		global.domains ={
-			'https://'+host,
+			host,
 			method:'GET',
 			requestCert: true,
 			port: 3306

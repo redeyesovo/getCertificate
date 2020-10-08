@@ -20,7 +20,7 @@ const readFile = (file) => {
 const getDay = host =>{
 	return new Promise ((resolve,reject) => {
 		global.domains ={
-			host,
+			'https://'+host,
 			method:'GET',
 			requestCert: true,
 			port: 3306
@@ -52,7 +52,7 @@ const getDay = host =>{
 	for(let i=0,len=hosts.length;i<len;i++){
 		//在循环中判断字符串数组中是否含带有'#'的字符串，若有，则i++跳过。
 		if(hosts[i].includes('#')){
-			i++;
+			continue;
 		}
 		global.host = hosts[i];
         await getDay(host);
